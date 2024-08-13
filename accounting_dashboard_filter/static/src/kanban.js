@@ -14,4 +14,4 @@ export const CustomKanban = {
     Controller: CustomKanbanController,
 };
 
-registry.category("views").add("todo_conversion_form", todoConversionFormView);
+registry.category("views").add("kanban_filter", CustomKanban);
