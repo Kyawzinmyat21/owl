@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+        <template id="accounting_dashboard_filter.dashboard_filter" name="Awesome T-Shirt thank you">
+          <html>
+              <head>
+                  <link type="image/x-icon" rel="shortcut icon" href="/web/static/img/favicon.ico"/>
+                  <t t-call-assets="accounting_dashboard_filter.dashboard_filter"/>
+              </head>
+
+              <body>
+              </body>
+          </html>
+        </template>
+  </data>
+</odoo>
