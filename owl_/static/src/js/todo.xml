@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="owl_.to_do_list">
+        <div class="m-2 p-2 border d-inline-block">
+            <input t-on-change="(e) => this.updateNewTodo(e, 'test')"></input>
+            <button t-on-click="(ev) => this.updateTodo()">add</button>
+            <t t-foreach="todo" t-as="t" t-key='t.id'>
+                <TodoItem todo='t' changeCompleted='updateCompleted'></TodoItem>
+            </t>
+        </div>
+    </t>
+</templates>

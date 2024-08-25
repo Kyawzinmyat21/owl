@@ -1,19 +1,16 @@
-# -*- coding: utf-8 -*-
+from odoo import api, fields, models
 
-# from odoo import models, fields, api
+class ResUsers(models.Model):
+    _inherit = 'res.users'
 
-
-# class owl_(models.Model):
-#     _name = 'owl_.owl_'
-#     _description = 'owl_.owl_'
-
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
-
+    def get_action(self, id):
+        form_view = self.env.ref('base.view_users_form')
+        return {
+            'name': ("User"),
+            'type': 'ir.actions.act_window',
+            'res_model': 'res.users',
+            'view_mode': 'form',
+            'views': [(form_view.id, 'form')],
+            'domain': [('id', 'in', [id])],
+            "res_id": id,
+        }

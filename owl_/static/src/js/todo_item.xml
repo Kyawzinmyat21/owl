@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="owl_.todo_item">
+        <style>
+            .a{
+                color:red
+            }
+        </style>
+        <div class="m-2 p-2 border d-inline-block">
+            To Do AA00DONSWF
+            <p t-att-class='{"a":props.todo.isCompleted}'><t  t-out='props.todo.des'></t></p>
+        </div>
+        <a t-on-click="(e) => {markCompleted()}" style='cursor:pointer'>Mark Completed</a>
+    </t>
+</templates>

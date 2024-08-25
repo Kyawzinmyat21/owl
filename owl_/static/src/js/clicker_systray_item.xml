@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="owl_.clicker_systray">
+       <p style='position:relative;display:inline-flex;;justify-content:center;align-items:center;border:1px ;height:30px;padding:0 20px'>
+            <div style='justify-content:center;align-items:center' t-on-click="(env)=>this.state.expandUsers = !this.state.expandUsers">
+                Hello <t t-out='user.name'></t>
+            </div>
+            <t t-if='state.expandUsers'>
+                <div style='position:absolute; top:100%; left:0; right: 0;background:white'>
+                    <t t-foreach="users" t-as='user' t-key="user.id">
+                        <ul style='border:.1px solid grey;padding:20px;margin:0' t-on-click="() => this._openUserModel(user.id)">
+                            <li style='list-decoration:none'><t t-out='user.name'></t></li>
+                        </ul>
+                    </t>
+                </div>    
+            </t>
+       </p>
+    </t>
+</templates>

@@ -50,6 +50,10 @@ Long description of module's purpose
             'web/static/src/core/assets.js',
             'owl_/static/src/**/*',
         ],
+        'web.assets_backend': [      
+            'owl_/static/src/js/clicker_systray_item.js',  
+            'owl_/static/src/js/clicker_systray_item.xml',  
+   ]
     },
     'license': 'AGPL-3'
 }
