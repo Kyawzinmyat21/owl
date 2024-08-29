@@ -6,9 +6,9 @@
                 Hello <t t-out='user.name'></t>
             </div>
             <t t-if='state.expandUsers'>
-                <div style='position:absolute; top:100%; left:0; right: 0;background:white'>
+                <div style='position:absolute; top:100%; border-radius:5px;left:0;background:white'>
                     <t t-foreach="users" t-as='user' t-key="user.id">
-                        <ul style='border:.1px solid grey;padding:20px;margin:0' t-on-click="() => this._openUserModel(user.id)">
+                        <ul style='border-bottom:0.001px solid #ecf0f1;padding:20px; list-style-type: none;margin:0;' t-on-click="() => this._openUserModel(user.id)">
                             <li style='list-decoration:none'><t t-out='user.name'></t></li>
                         </ul>
                     </t>

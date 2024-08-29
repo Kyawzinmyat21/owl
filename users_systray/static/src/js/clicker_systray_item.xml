@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="owl_.clicker_systray">
+        <style>
+            .a{
+                display:block !important;
+                height:480px !important;
+               overflow-y: scroll !important;
+               transition: height 0.55s ease
+            }
+
+            .h{
+               height:0px;
+               overflow-y: hidden;
+               transition: height 0.35s ease
+            }
+            .a::-webkit-scrollbar {
+                display: none;
+              }
+
+              .user_item{
+                list-decoration:none;
+                cursor:pointer;
+              }
+
+              ul:hover{
+                background:#dceff3
+              }
+
+        </style>
+
+       <p style='position:relative;display:inline-flex;;justify-content:center;align-items:center;border:1px;z-index:999999 ;height:30px;padding:0 20px'>
+            <div style='justify-content:center;align-items:center' t-on-click="(env)=>this.state.expandUsers = !this.state.expandUsers">
+                Hello <t t-out='user.name'></t>
+            </div>
+                <div class='h' t-att-class='{"a":state.expandUsers}' style='position:absolute; top:100%; width:200px; border-radius:5px;left:0;background:white'>
+                        <input></input>
+                    <t t-foreach="users" t-as='user' t-key="user.id">
+                        <ul style='border-bottom:0.001px solid #ecf0f1;padding:20px; list-style-type: none;margin:0;' t-on-click="() => this._openUserModel(user.id)">
+                            <li class='user_item' style=''><t t-out='user.name'></t></li>
+                        </ul>
+                    </t>
+                </div>    
+       </p>
+    </t>
+</templates>
