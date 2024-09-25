@@ -53,6 +53,8 @@ Long description of module's purpose
         'web.assets_backend': [      
             'owl_/static/src/js/clicker_systray_item.js',  
             'owl_/static/src/js/clicker_systray_item.xml',  
+            'owl_/static/src/js/test_widget.xml',  
+            'owl_/static/src/js/test_widget.js',  
    ]
     },
     'license': 'AGPL-3'

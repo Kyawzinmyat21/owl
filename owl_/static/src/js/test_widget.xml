@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="owl_.test_widget">
+       <p style='position:relative;display:inline-flex;;justify-content:center;align-items:center;border:1px ;height:30px;padding:0 20px'>
+           shit
+       </p>
+    </t>
+</templates>
