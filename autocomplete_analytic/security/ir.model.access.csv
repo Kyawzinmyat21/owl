@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_autocomplete_analytic_autocomplete_analytic,autocomplete_analytic.autocomplete_analytic,model_autocomplete_analytic_autocomplete_analytic,base.group_user,1,1,1,1

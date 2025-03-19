@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!-- <t t-extend="web.Many2XAutocomplete">
+        <t t-jquery=".o_input_dropdown" t-operation="replace">
+            <div class="o_input_dropdown custom_autocomplete" t-ref="autocomplete_container">
+                <input t-if="env.isSmall and props.dropdown"
+                    type="text"
+                    t-att-id="props.id"
+                    class="o_input"
+                    readonly=""
+                    autocomplete="off"
+                    t-att-placeholder="props.placeholder"
+                    t-att-value="props.value"
+                    t-on-click="onSearchMore"
+                    t-on-barcode-search="onBarcodeSearch"
+                />
+                <AutoComplete t-else=""
+                    value="props.value"
+                    id="props.id"
+                    placeholder="props.placeholder"
+                    sources="sources"
+                    autoSelect="props.autoSelect"
+                    onSelect.bind="onSelect"
+                    onInput.bind="onInput"
+                    onChange.bind="onChange"
+                    dropdown="props.dropdown"
+                    autofocus="props.autofocus"
+                    resetOnSelect="props.value === ''"
+                    onCancel.bind="onCancel"
+                    analytic="props.analytic"
+                />
+                <span class="o_dropdown_button" />
+                <span class="custom_message">Custom Autocomplete Extended</span>
+            </div>
+        </t>
+    </t> -->
+</templates>
