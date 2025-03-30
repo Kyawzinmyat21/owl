@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+
+    <record id="client_action_my_new_app" model="ir.actions.client">
+      <field name="name">Testing Services</field>
+      <field name="tag">services.my_new_app_client_action</field>
+    </record>
+
+
+      <menuitem id="menu_my_new_app" name="My New App" sequence="10" />
+      <menuitem id="menu_my_new_app_main" name="Main Menu" parent="menu_my_new_app" sequence="10" />
+
+      <record id="view_my_new_app_model_form" model="ir.ui.view">
+        <field name="name">my.new.app.model.form</field>
+        <field name="model">my.new.app.model</field>
+        <field name="arch" type="xml">
+            <form create='1'>
+                <sheet>
+                  <field highlight='description == "kyaw"' required='1'  name='name'></field>
+                  <field name='description'></field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+      <record id="action_my_new_app" model="ir.actions.act_window">
+        <field name="name">My New App</field>
+        <field name="res_model">my.new.app.model</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+          <menuitem id="menu_my_new_app_client_action" name="Services" parent="menu_my_new_app_main" action="client_action_my_new_app" sequence="20" />
+
+      <menuitem id="menu_my_new_app_action" name="My New App Action" parent="menu_my_new_app_main" action="action_my_new_app" sequence="10" />
+    </data>
+</odoo>

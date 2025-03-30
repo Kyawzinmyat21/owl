@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="services.services">
+        <div class="client-action">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <t t-out='services.string'></t>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td t-out='services.function()'></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="services.my_new_app_client_action">
+    <Layout display='display'>
+        <div class="client-action">
+            <h1>Welcome to Client Action</h1>
+            <p>This is a sample XML template for Odoo OWL.</p>
+            <button  t-on-click="showNoti">
+                Noti Service
+            </button>
+            <button t-on-click='showDialog'>
+                dialog
+            </button>
+        </div>
+        <ServiceComponent></ServiceComponent>
+    </Layout>
+    </t>
+</templates>
