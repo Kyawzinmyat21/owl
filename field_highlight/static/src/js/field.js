@@ -7,6 +7,7 @@ import { archParseBoolean, getClassNameFromDecoration, X2M_TYPES } from "@web/vi
 import {getFieldFromRegistry} from "@web/views/fields/field";
 import { evaluateExpr, evaluateBooleanExpr } from "@web/core/py_js/py";
 import { utils } from "@web/core/ui/ui_service";
+import { useRef, onWillStart, useState } from "@odoo/owl";
 
 
 
@@ -15,17 +16,40 @@ const isSmall = utils.isSmall;
 
 
 patch(Field.prototype, {
+    setup(){
+        super.setup();
+        this.state = useState({
+            readonly: false
+        })
+        onWillStart(async () => {
+            this.state.readonly = this.props.fieldInfo.readonly_group ? await this.env.services.user.hasGroup(this.props.fieldInfo.readonly_group) : false;
+        });
+    }
+    ,
     get classNames() {
             let classNames = super.classNames;
             let highlight = evaluateBooleanExpr(this.props.fieldInfo.highlight, this.props.record.evalContextWithVirtualIds);
+            if (highlight){
+                const root = document.documentElement;
+                const bg = this.props.fieldInfo.options.bg_color
+                const color = this.props.fieldInfo.options.color
+                root.style.setProperty('--background-color', bg);
+                root.style.setProperty('--color', color);
+            }
             classNames.field_highlight = highlight
+            if (this.props.fieldInfo.readonly_group && this.state.readonly){
+                classNames.o_readonly_modifier = true
+                this.props.readonly = true
+
+            }
             return classNames
         }
 })
 
 Field.props = [
     ...Field.props,
-   'highlight?'
+   'highlight?',
+   'readonly_group?',
 ]
 
 
@@ -34,6 +58,7 @@ Field.parseFieldNode = function (node, models, modelName, viewType, jsClass) {
     const name = node.getAttribute("name");
     const widget = node.getAttribute("widget");
     const highlight = node.getAttribute("highlight");
+    const readonly_group = node.getAttribute("readonly_group");
     const fields = models[modelName];
     if (!fields[name]) {
         throw new Error(`"${modelName}"."${name}" field is undefined.`);
@@ -55,8 +80,10 @@ Field.parseFieldNode = function (node, models, modelName, viewType, jsClass) {
         attrs: {},
         domain: undefined,
         highlight,
+        readonly_group,
     };
     fieldInfo[highlight] = highlight;
+    fieldInfo['readonly_group'] = readonly_group;
     for (const attr of ["invisible", "column_invisible", "readonly", "required"]) {
         fieldInfo[attr] = node.getAttribute(attr);
         if (fieldInfo[attr] === "True") {

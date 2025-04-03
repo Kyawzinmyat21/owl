@@ -1,4 +1,14 @@
+:root {
+    --background-color:inherit;
+    --color:inherit;
+  }
+  $backgroundColor: var(--background-color);
+  $color: var(--color);
+  
+
 .field_highlight {
-    color:black;
-    background-color: rgba(68, 140, 152, 0.3) !important;
+    background: $backgroundColor !important;
+    color : $color  !important;
+    // color:black;
+    // background-color: rgba(68, 140, 152, 0.3) !important;
 }

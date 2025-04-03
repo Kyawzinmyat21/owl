@@ -16,8 +16,9 @@
         <field name="arch" type="xml">
             <form create='1'>
                 <sheet>
-                  <field highlight='description == "kyaw"' required='1'  name='name'></field>
-                  <field name='description'></field>
+                  <field widget='password_debug_widget' group='base.group_portal' required='1'  name='name'></field>
+                  <field readonly_group='base.group_portal' name='description'></field>
+                  <field readonly_group='base.group_no_one' widget='py_expression' expr='"1" +this if this > 0 else "2" + this' name='float_test'></field>
                 </sheet>
             </form>
         </field>
